@@ -30,12 +30,16 @@ $qry_student = "SELECT
                         klas,
                         geboortedatum
                         FROM student
-                        ORDER BY achternaam, voornaam;";
+                        ORDER BY id;";
 // gegevens query ophalen uit db student
-$result = mysqli_query($dbconn, $qry_student);
-$count_records = mysqli_num_rows($result);
+$result=$dbconn->prepare($qry_student);
+$result->execute();
+
+$count_records = $result->rowCount();
+
 if ($count_records>0) { // wel studenten ophalen
-    while ($row=mysqli_fetch_array($result)) {
+    $result->setFetchMode(PDO::FETCH_BOTH);
+    foreach($result as $row) {
         $contentTable .= "<tr>
                             <td>" . $row['id'] . "</td>
                             <td>" . $row['voornaam'] . "</td>
