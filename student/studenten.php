@@ -1,5 +1,6 @@
 <?php
 include 'header.php';
+include './Class/Studenten.php'
 ?>
 <?php
 // initialiseren/declareren
@@ -17,29 +18,14 @@ $table_header = '<table id="students">
                         <th>email</th>
                         <th>klas</th>
                         <th>geboortedatum</th>
+                        <th>Edit</th>
                     </tr>';
-$qry_student = "SELECT 
-                        id, 
-                        voornaam, 
-                        tussenvoegsel, 
-                        achternaam,
-                        straat,
-                        postcode,
-                        woonplaats,
-                        email,
-                        klas,
-                        geboortedatum
-                        FROM student
-                        ORDER BY id;";
-// gegevens query ophalen uit db student
-$result=$dbconn->prepare($qry_student);
-$result->execute();
 
-$count_records = $result->rowCount();
-
-if ($count_records>0) { // wel studenten ophalen
-    $result->setFetchMode(PDO::FETCH_BOTH);
-    foreach($result as $row) {
+$studenten = new Student($dbconn);
+$studenten->getStudenten();
+if ($studenten->getNumberStudenten()>0) { // wel studenten ophalen
+    $studenten->studentenResult->setFetchMode(PDO::FETCH_BOTH);
+    foreach($studenten->studentenResult as $row) {
         $contentTable .= "<tr>
                             <td>" . $row['id'] . "</td>
                             <td>" . $row['voornaam'] . "</td>
@@ -51,6 +37,13 @@ if ($count_records>0) { // wel studenten ophalen
                             <td>" . $row['email'] . "</td>
                             <td>" . $row['klas'] . "</td>
                             <td>" . $row['geboortedatum'] . "</td>
+                            
+
+                            <td> 
+                                <form  method='POST' action='./function/editPersoon.php'>
+                                        <button type='submit' name='ID' value=" . $row['id'] . " />
+                                </form>  
+                        </td>
                         </tr>";
     }
 }

@@ -5,7 +5,7 @@ include 'conn/database.php';
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Studenten</title>
+    <title>login</title>
     <link rel="stylesheet" type="text/css" href="css/student.css">
 </head>
 <body>
