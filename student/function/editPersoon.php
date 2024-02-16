@@ -1,14 +1,12 @@
 <?php
-include '../header.php';
+include '../view/header.php';
 include '../Class/Persoon.php'
 
 ?>
-<a type="button" href="../studenten.php">Back</a>
+<a type="button" href="../view/studenten.php">Back</a>
 <?php
 
 $id = $_POST['ID'];
-
-
 
 $studentInfo = new Persoon($dbconn);
 
@@ -39,6 +37,6 @@ echo $inputPersoon;
 ?>
 
 <?php
-include('../footer.php')
+include('../view/footer.php')
 
 ?>

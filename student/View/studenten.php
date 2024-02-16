@@ -1,7 +1,9 @@
 <?php
 include 'header.php';
-include './Class/Studenten.php'
+include '../Class/Studenten.php'
 ?>
+<div class="studentContainer">
+    <div class="studentTable">
 <?php
 // initialiseren/declareren
 $contentTable = "";
@@ -40,8 +42,8 @@ if ($studenten->getNumberStudenten()>0) { // wel studenten ophalen
                             
 
                             <td> 
-                                <form  method='POST' action='./function/editPersoon.php'>
-                                        <button type='submit' name='ID' value=" . $row['id'] . " />
+                                <form  method='POST' action='../function/editPersoon.php'>
+                                        <button type='submit' name='ID' id='Edit'  value=" . $row['id'] . " >Edit</button>
                                 </form>  
                         </td>
                         </tr>";
@@ -51,6 +53,8 @@ $table_student = $table_header . $contentTable . "</table>";
 
 echo $table_student;
 ?>
+    </div>
+</div>
 <?php
 include('footer.php')
 
