@@ -16,8 +16,9 @@ include('../view/header.php');
 <?php
 if(isset($_POST['email'])){
     //include ('registreren.html');
+
     include ('../Class/mailer.php');
-    include ('../Class/Token.php');
+    // include ('../Class/Token.php');
     // include('../conn/database.php');
     $token = new Token($dbconn);
     
@@ -29,7 +30,7 @@ if(isset($_POST['email'])){
     echo '<div id="melding">'.$melding."</div>";
     $onderwerp = "Watchwoord vergeten";
     $bericht = "Geachte $klant, Bent u uw email vergeten.
-     http://localhost/2024/PGB/PHP/student/student-pdo-lucasvermeulen/student/function/ResetWachtwoord.php?rol=".$_POST['rol']."&Token=" . $TempToken ."";
+     http://localhost/2024/PGB/PHP/student/student-pdo-lucasvermeulen/student/function/ResetWachtwoord.php?rol=".$_POST['rol']."&Token=" . $TempToken ."&email=". $email."";
     //mailen...
     mailen($email, $klant, $onderwerp, $bericht );
     header("Location: ../view/inlog.php");

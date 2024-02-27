@@ -1,6 +1,6 @@
 <?php
 include 'header.php';
-include '../Class/Studenten.php'
+// include '../Class/Studenten.php'
 ?>
 <div class="studentContainer">
     <div class="studentTable">

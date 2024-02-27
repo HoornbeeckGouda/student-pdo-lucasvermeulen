@@ -1,6 +1,6 @@
 <?php
 include '../view/header.php';
-include '../Class/Persoon.php'
+
 
 ?>
 <a type="button" href="../view/studenten.php">Back</a>

@@ -1,6 +1,8 @@
 <?php
 include '../conn/database.php';
 session_start();
+include '../function/autoload.php'
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

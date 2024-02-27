@@ -9,15 +9,16 @@ Class Token{
         $this->dbconn = $dbconn;
     }
 
-    public function getToken(){
+    public function getToken($email){
         $qry_Token = "SELECT  
                                 email,
                                 token
                                 FROM token
-                                ORDER BY email";
+                                WHERE email = '$email' ";
         // gegevens query ophalen uit db student
         $this->Token=$this->dbconn->prepare($qry_Token);
         $this->Token->execute();
+        
         return $this->Token;
     }
 
