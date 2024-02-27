@@ -1,5 +1,6 @@
 <?php
 include('../view/header.php');   
+
 ?>
 <div id="formContainer">
     <div id="InnerContainer">   

@@ -9,7 +9,6 @@ include('../view/header.php');
         <form class="Form"  method="post">
             <input type="text" name="rol" placeholder="rol">
             <input type="email" name="email" placeholder="email">
-            <?php include './Recaptcha.php'?>
             <input type="submit">
         </form> 
     </div>
@@ -19,7 +18,7 @@ if(isset($_POST['email'])){
     //include ('registreren.html');
     include ('../Class/mailer.php');
     include ('../Class/Token.php');
-    include('../conn/database.php');
+    // include('../conn/database.php');
     $token = new Token($dbconn);
     
     $klant = 'Klant B';
@@ -33,7 +32,7 @@ if(isset($_POST['email'])){
      http://localhost/2024/PGB/PHP/student/student-pdo-lucasvermeulen/student/function/ResetWachtwoord.php?rol=".$_POST['rol']."&Token=" . $TempToken ."";
     //mailen...
     mailen($email, $klant, $onderwerp, $bericht );
-    header("Location: ../inlog.php");
+    header("Location: ../view/inlog.php");
 
 }
 

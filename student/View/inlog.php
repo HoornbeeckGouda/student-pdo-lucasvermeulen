@@ -55,7 +55,7 @@ if(isset($_POST['rol'])){
 
                 <input type="submit" value="Submit">       
         </form> 
-        <form class="Form" action="./function/Emailer.php"  method="post" >  
+        <form class="Form" action="../function/Recaptcha.php"  method="post" >  
             <input type="submit" name="WachtVergeten"  value="Wachtwoord vergeten?" 
                     class="button" /> 
         </form> 
